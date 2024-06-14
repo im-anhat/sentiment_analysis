@@ -1,0 +1,22 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2759
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 GloVe 300-dimensional embeddings are so large\
+\
+import requests \
+from zipfile import ZipFile \
+from io import BytesIO \
+# URL of the GloVe embeddings \
+url = "http://nlp.stanford.edu/data/glove.6B.zip" \
+# Send a request to the URL \
+response = requests.get(url, stream=True) \
+# Open the zip file streamed from the response \
+with ZipFile(BytesIO(response.content)) as thezip: \
+# Extract the specific file you need \
+	thezip.extract("glove.6B.300d.txt", path="your/desired/directory/")}
